@@ -1,4 +1,4 @@
-# ENGG1340
+# Project Idea
 ## Problem Statement
 Hi
 ## Problem Setting
