@@ -2,7 +2,7 @@
 ## Problem Statement
 We are going to develop a staff management system to collect and manage the employee information of a small business.
 ## Problem Setting
-We assume that there is around 15 staffs in the business.
+We assume that there are around 15 staffs in the business.
 ## Program Features
 ### 1.Create a new employee with employee's personal information
 Personal information include: ID, name, age, role, and salary
