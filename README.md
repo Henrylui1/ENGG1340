@@ -17,3 +17,4 @@ The value of the new attribute of the existing employee will be empty or undefin
 ### 7.A Menu will be provided for users
 The users can choose what function to run 
 ### 8.Show the current project that an employee is engaging in
+### 9. Adding remarks to specific employees
