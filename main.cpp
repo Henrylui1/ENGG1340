@@ -9,10 +9,12 @@ int main()
 {
   string DataFile;
   int choice;
+  //
   cout<<"Initialization"<<endl;
   cout<<"Please enter the name of the file that \nincludes employee's information :";
   cin>>DataFile;
   //readfile(DataFile) //from "filein"
+  //need this part?
   cout<<setfill('-');
   cout<<setw(17)<<' '<<"Staff Management System"<<setw(17)<<' '<<endl;
   cout<<"Menu"<<endl;
