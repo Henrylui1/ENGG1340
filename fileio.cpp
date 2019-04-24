@@ -55,6 +55,8 @@ int main() {
   for (int i=0;i<count;++i) {
     list[i].age=breakdown(list[i].all_info,list[i].name);
     list[i].salary=breakdown(list[i].all_info,list[i].role);
+    cout<<"Employee "<<list[i].ID<<"'s name is "<<list[i].name<<". Aged "<<list[i].age<<", has a position of "
+      <<list[i].role<<", and has a salary of "<<list[i].salary<<".\n";
   }
   delete [] list;
   return 0;
