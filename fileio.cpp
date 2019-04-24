@@ -15,10 +15,13 @@ int main() {
     cout << "Error in file opening!" << endl;
     exit(1);
   }
-  int ID;
+  int temp;
   Employee *list=new list[];
-  while(fin>>ID) {
+  count=0;
+  while(fin>>temp) {
+    Employee[0].ID=temp;
     
+    count++;
   }
   return 0;
 }
