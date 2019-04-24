@@ -16,10 +16,10 @@ int main() {
     exit(1);
   }
   int temp;
-  Employee *list=new list[];
+  Employee *list=new Employee [];
   count=0;
   while(fin>>temp) {
-    Employee[0].ID=temp;
+    Employee[count].ID=temp;
     
     count++;
   }
