@@ -36,25 +36,41 @@ struct Employee {
   int salary;
 };
 int main() {
-  ifstream fin("employees.txt");
+  ifstream fin;
+  fin.open("employees.txt");
   if (fin.fail()) {
     cout << "Error in file opening!" << endl;
     exit(1);
   }
-  int temp;
-  int count=1;
-  Employee *list=new Employee [count];
-  while(fin>>temp) {
-    list[count-1].ID=temp;
-    getline(fin,list[count-1].all_info);
-    int i=count-1;
-    list[i].age=breakdown(list[i].all_info,list[i].name);
-    list[i].salary=breakdown(list[i].all_info,list[i].role);
-    cout<<"Employee "<<list[i].ID<<"'s name is "<<list[i].name<<". Aged "<<list[i].age<<", has a position of "
-      <<list[i].role<<", and has a salary of "<<list[i].salary<<".\n";
-    count++;
+  ifstream fintemp;
+  fintemp.open("employees.txt");
+  if (fintemp.fail()) {
+    cout << "Error in file opening!" << endl;
+    exit(1);
   }
+ int count=1;
+ int total=0,x;
+ string s;
+ while (fintemp>>x) {
+   getline(fintemp,s);
+   total++;
+ }
+ fintemp.close();
+ Employee *list=new Employee [total];
+ while(fin>>list[count-1].ID) {
+  getline(fin,list[count-1].all_info);
+  int i=count-1;
+  string useless;
+  list[i].age=breakdown(list[i].all_info,list[i].name);
+  list[i].salary=breakdown(list[i].all_info,list[i].role);
+  cout<<"Employee "<<list[i].ID<<"'s name is"<<list[i].name<<". Aged "<<list[i].age<<", has a position of "
+    <<list[i].role<<", and has a salary of "<<list[i].salary<<".\n";
+  count++;
+  }
+
   fin.close();
+
+
   delete [] list;
   return 0;
 }
