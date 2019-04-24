@@ -10,16 +10,3 @@
 10 Jones Indiana 33 Second Conlsultant 75000
 11 Ching Fen Shi 37 Cleaning 13000 
 12 Chu Siu Siu 23 Accounting Trainee 15000
-13 
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
