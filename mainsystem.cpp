@@ -222,6 +222,78 @@ void SearchEmployee() {
   delete [] list;
 }
 
+void FireEmployee() {
+  ifstream fin;
+  fin.open("employees.txt");
+  if (fin.fail()) {
+    cout << "Error in file opening!" << endl;
+    exit(1);
+  }
+  ifstream fintemp;
+  fintemp.open("employees.txt");
+  if (fintemp.fail()) {
+    cout << "Error in file opening!" << endl;
+    exit(1);
+  }
+ int count=1;
+ int total=0,x;
+ string s;
+ while (fintemp>>x) {
+   getline(fintemp,s);
+   total++;
+ }
+ fintemp.close();
+ Employee *list=new Employee [total];
+ while(fin>>list[count-1].ID) {
+  getline(fin,list[count-1].all_info);
+  int i=count-1;
+  list[i].age=breakdown(list[i].all_info,list[i].name);
+  list[i].salary=breakdown(list[i].all_info,list[i].role);
+  count++;
+  }
+  fin.close();
+  cout<<"Please enter the employee's id: ";
+  int del;
+  string confirm;
+  cin>>del;
+  bool exist=true;
+  for (int i=0;i<total;i++) {
+    if (list[i].ID==del){
+      break;
+    } else if (i==total-1) {
+      cout<<"The employee does not exist!\n\n\n";
+      exist=false;
+    }
+  }
+  while (exist) {
+    cout<<"Are you sure you want to delete this employee's information? Y/N ";
+    cin>>confirm;
+    if (confirm=="Y") {
+      ofstream fout;
+      fout.open("employees.txt");
+      if (fout.fail()) {
+        cout<<"Error in file opening!"<<endl;
+        exit(1);
+      }
+      for (int i=0;i<total;i++) {
+        if (list[i].ID==del){
+          continue;
+        }
+        fout<<list[i].ID<<list[i].name<<" "<<list[i].age<<" "<<list[i].role<<" "<<list[i].salary<<endl;
+      }
+      fout.close();
+      cout<<"Employee Removed\n\n\n";
+      break;
+    } else if (confirm=="N") {
+      cout<<"Deletion Terminated\n\n\n";
+      break;
+    } else {
+      cout<<"Error! Please type Y/N"<<endl;
+    }
+  }
+}
+
+
 int main()
 {
   //string DataFile;
@@ -263,7 +335,7 @@ int main()
       system("cls");
       break;
       case 4:
-      //FireEmployee();
+      FireEmployee();
       break;
       case 5:
       //EditEmployee();
