@@ -40,6 +40,7 @@ struct Employee {
   int salary;
 };
 int ListEmployee() {
+  string stopper;
   ifstream fin;
   fin.open("employees.txt");
   if (fin.fail()) {
@@ -62,11 +63,11 @@ int ListEmployee() {
  fintemp.close();
  Employee *list=new Employee [total];
  cout<<setfill(' ');
- cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+ cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+  <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
  while(fin>>list[count-1].ID) {
   getline(fin,list[count-1].all_info);
   int i=count-1;
-  string useless;
   list[i].age=breakdown(list[i].all_info,list[i].name);
   list[i].salary=breakdown(list[i].all_info,list[i].role);
   cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
@@ -74,13 +75,13 @@ int ListEmployee() {
   count++;
   }
   fin.close();
-
   delete [] list;
   return 0;
 }
 
 void AddEmployee()
 {
+  string stopper;
   int id,age,salary;
   string name,role;
   cout<<"Enter ID :\n";
@@ -106,6 +107,121 @@ void AddEmployee()
   fout.close();
 }
 
+void SearchNamePrintString(Employee *list,string key,int total) {
+  cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+   <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+   for (int i=0;i<total;i++) {
+     if (key.length()<=list[i].name.length()){
+       for (int j=0;j<list[i].name.length()-key.length()+1;j++){
+         if (list[i].name.substr(j,key.length())==key) {
+           cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
+            <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
+          }
+        }
+      }
+   }
+  cout<<"\n\n\n";
+}
+
+void SearchEmployee() {
+  ifstream fin;
+  fin.open("employees.txt");
+  if (fin.fail()) {
+    cout << "Error in file opening!" << endl;
+    exit(1);
+  }
+  ifstream fintemp;
+  fintemp.open("employees.txt");
+  if (fintemp.fail()) {
+    cout << "Error in file opening!" << endl;
+    exit(1);
+  }
+ int count=1;
+ int total=0,x;
+ string s;
+ while (fintemp>>x) {
+   getline(fintemp,s);
+   total++;
+ }
+ fintemp.close();
+ Employee *list=new Employee [total];
+ while(fin>>list[count-1].ID) {
+  getline(fin,list[count-1].all_info);
+  int i=count-1;
+  list[i].age=breakdown(list[i].all_info,list[i].name);
+  list[i].salary=breakdown(list[i].all_info,list[i].role);
+  count++;
+  }
+  fin.close();
+  cout<<setfill(' ');
+  int option;
+  while (option!=0) {
+    cout<<"You can search by:\n1. ID \n2. name \n3. age \n4. role \n\n0. Exit Searching\n"<<endl;
+    cout<<"Option: "<<endl;
+    cin>>option;
+    system("cls");
+    cout<<"Search for: ";
+    switch (option) {
+      case 1:
+      {int x;
+      cin>>x;
+      cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+       <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+      for (int i=0;i<total;i++) {
+        if (list[i].ID==x) {
+          cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
+            <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
+        }
+      }
+      cout<<"\n\n\n";
+      break;}
+      case 2:
+      {string y;
+      cin>>ws;
+      getline(cin,y);
+      SearchNamePrintString(list,y,total);
+      break;}
+      case 3:
+      {int z;
+      cin>>z;
+      cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+       <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+      for (int i=0;i<total;i++) {
+        if (list[i].age==z) {
+          cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
+            <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
+        }
+      }
+      cout<<"\n\n\n";
+      break;}
+      case 4:
+      {string a;
+      cin>>ws;
+      getline(cin,a);
+      cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+       <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+       for (int i=0;i<total;i++) {
+         if (a.length()<=list[i].role.length()){
+           for (int j=0;j<list[i].role.length()-a.length()+1;j++){
+             if (list[i].role.substr(j,a.length())==a) {
+               cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
+                <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
+              }
+            }
+          }
+       }
+      cout<<"\n\n\n";
+      break;}
+      case 0:
+      break;
+      default:
+      cout<<"Error! Please choose one of the options."<<endl;
+    }
+  }
+
+  delete [] list;
+}
+
 int main()
 {
   //string DataFile;
@@ -127,7 +243,8 @@ int main()
     cout<<"5. Edit the information of an existing employee"<<endl;
     cout<<"6. Search for employees according to the salary level"<<endl;
     cout<<"7. Add a defined attribute"<<endl;
-    cout<<"8. Add remark to an employee"<<endl;
+    cout<<"8. Show the current project an employee is engaging in"<<endl;
+    cout<<"9. Add remark to an employee"<<endl;
     cout<<"0. Exit the system"<<endl;
     cout<<setw(57)<<' '<<endl;
     cout<<"Please enter your choice :";
@@ -142,7 +259,8 @@ int main()
       AddEmployee();
       break;
       case 3:
-      //SearchEmployee();
+      SearchEmployee();
+      system("cls");
       break;
       case 4:
       //FireEmployee();
@@ -157,7 +275,7 @@ int main()
       //AddAttribute();
       break;
       case 8:
-      //AddRemark();
+      //ShowProject();
       break;
       case 0:
       cout<<"Thanks for using."<<endl;
