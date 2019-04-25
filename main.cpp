@@ -59,6 +59,8 @@ int main()
     case 9:
     cout<<"Thanks for using."<<endl;
     exit(1);
+    default:
+      cout<<"Error! Please choose one of the options."<<endl;
   }
 
 }
