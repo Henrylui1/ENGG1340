@@ -17,5 +17,5 @@ By deleting the employee's information
 The value of the new attribute of the existing employee will be empty or undefined
 ### 8.A Menu will be provided for users
 The users can choose what function to run 
-### 9.Show the current project that an employee is engaging in
+
 
