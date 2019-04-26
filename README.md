@@ -15,7 +15,8 @@ By deleting the employee's information
 ### 6.Search for all employees with a salary higher than or lower than a user input (done)
 ### 7.Allow adding user-defined attributes
 The value of the new attribute of the existing employee will be empty or undefined
-### 8.A Menu will be provided for users
+### 8.Sort the information of the employees (done)
+### 9.A Menu will be provided for users
 The users can choose what function to run 
 
 
