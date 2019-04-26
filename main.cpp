@@ -7,6 +7,15 @@
 #include <stdio.h>
 #include "functions.h"
 
+struct Employee {
+  int ID;
+  string all_info;
+  string name;
+  int age;
+  string role;
+  int salary;
+};
+
 int main()
 {
   //string DataFile;
