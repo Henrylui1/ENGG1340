@@ -8,16 +8,7 @@ void EditEmployee()
   //cin>>newchoice;
   int nage,nsalary;
   string nname,nrole;
-  cout<<"Please enter new name :";
-  cin>>ws;
-  getline(cin,nname);
-  cout<<"Please enter new age :";
-  cin>>nage;
-  cout<<"Please enter new role :";
-  cin>>ws;
-  getline(cin,nrole);	 
-  cout<<"Please enter new salary :";
-  cin>>nsalary; 
+  
   //
   ifstream fin;
   fin.open("employees.txt");
@@ -54,15 +45,35 @@ void EditEmployee()
         cout<<"Error in file opening!"<<endl;
         exit(1);
       }
-      for (int i=0;i<total;i++) {
-        if (list[i].ID==edit){
-           fout<<list[i].ID<<" "<<nname<<" "<<nage<<" "<<nrole<<" "<<nsalary<<endl;}
+      for (int j=0;j<total;j++)
+      {
+      	if (list[j].ID==edit){
+      		cout<<"Original Record :\n" ;
+			  cout<<setfill(' ');
+ cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+ cout<<setw(4)<<left<<list[j].ID<<setw(20)<<left<<list[j].name<<setw(4)<<left<<list[j].age
+    <<setw(30)<<left<<list[j].role<<setw(7)<<left<<list[j].salary<<endl;
+		  }}
+		  cout<<"Please enter new name :";
+  cin>>ws;
+  getline(cin,nname);
+  cout<<"Please enter new age :";
+  cin>>nage;
+  cout<<"Please enter new role :";
+  cin>>ws;
+  getline(cin,nrole);	 
+  cout<<"Please enter new salary :";
+  cin>>nsalary; 
+	  
+	  for (int k=0;k<total;k++) {
+        if (list[k].ID==edit){
+           fout<<list[k].ID<<" "<<nname<<" "<<nage<<" "<<nrole<<" "<<nsalary<<endl;}
         else{
 		
 		{
-			 fout<<list[i].ID<<list[i].name<<" "<<list[i].age<<" "<<list[i].role<<" "<<list[i].salary<<endl;
+			 fout<<list[k].ID<<list[k].name<<" "<<list[k].age<<" "<<list[k].role<<" "<<list[k].salary<<endl;
 		   }   
         }
 }
 fout.close();
-      cout<<"Employee's Record Edited'\n\n\n";}
+      cout<<"Employee's Record Edited !\n\n\n";}
