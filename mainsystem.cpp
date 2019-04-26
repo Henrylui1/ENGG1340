@@ -5,7 +5,6 @@
 #include <sstream>
 #include <iomanip>
 #include <stdio.h>
-//#include "filein.h"
 //#include "functions.h"
 
 using namespace std;
