@@ -453,8 +453,7 @@ int main()
     cout<<"5. Edit the information of an existing employee"<<endl;
     cout<<"6. Search for employees according to the salary level"<<endl;
     cout<<"7. Add a defined attribute"<<endl;
-    cout<<"8. Show the current project an employee is engaging in"<<endl;
-    cout<<"9. Add remark to an employee"<<endl;
+    cout<<"8. Add remark to an employee"<<endl;
     cout<<"0. Exit the system"<<endl;
     cout<<setw(57)<<' '<<endl;
     cout<<"Please enter your choice :";
@@ -476,16 +475,13 @@ int main()
       FireEmployee();
       break;
       case 5:
-      //EditEmployee();
+      EditEmployee();
       break;
       case 6:
-      //SearchSalary();
+      SearchSalary();
       break;
       case 7:
       //AddAttribute();
-      break;
-      case 8:
-      //ShowProject();
       break;
       case 0:
       cout<<"Thanks for using."<<endl;
