@@ -12,7 +12,7 @@ By the given ID, name, age or role of the employee
 ### 4.Fire an employee
 By deleting the employee's information
 ### 5.Edit the details of an existing employee (done)
-### 6.Search for all employees with a salary higher than or lower than a user input
+### 6.Search for all employees with a salary higher than or lower than a user input (done)
 ### 7.Allow adding user-defined attributes
 The value of the new attribute of the existing employee will be empty or undefined
 ### 8.A Menu will be provided for users
