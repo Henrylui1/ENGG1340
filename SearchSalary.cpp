@@ -1,6 +1,6 @@
 void SearchSalary()
 {
-	int choice,target;
+	int choice,target,num=0;;
 	cout<<"Please enter a salary level :";
 	cin>>target;
 	cout<<"You want to search employees with salary higher than or lower than the level ?\n";
@@ -42,6 +42,7 @@ void SearchSalary()
   	{
   		if (list[i].salary>=target)
   		{
+  			num+=1;
   			cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
     <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
 		  }
@@ -50,11 +51,13 @@ void SearchSalary()
 	{
 		if (list[i].salary<=target)
 		{
+			num+=1;
 			cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
     <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
 		}
 	  }  
   }
 	cout<<"Search Ended !"<<endl;
+	cout<<"Total "<<num<<" employees found !"<<endl;
 	
 }
