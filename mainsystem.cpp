@@ -39,6 +39,7 @@ struct Employee {
   string role;
   int salary;
 };
+
 int ListEmployee() {
   string stopper;
   ifstream fin;
@@ -464,7 +465,7 @@ void ReadAttribute() {
   ifstream fin2;
   fin2.open("attributes.txt");
   if (fin2.fail()) {
-    cout<< "Error is file opening!" << endl;
+    cout<< "Error in file opening!" << endl;
     exit(1);
   }
   string x,y;
@@ -477,81 +478,106 @@ void ReadAttribute() {
   fin2.close();
 }
 
-void EditAttribute(Employee * list,int total) {
+int EditAttribute(Employee * list,int total) {
+  system("cls");
   ReadAttribute();
   cout<<"Attribute name: ";
   string att;
   cin>>att;
-  ifstream fin2;
-  fin2.open("attributes.txt");
-  if (fin2.fail()) {
-    cout<< "Error is file opening!" << endl;
-    exit(1);
-  }
-  ofstream fout;
-  fout.open("attributes_new.txt");
-  if (fout.fail()) {
-    cout<<"Error in file opening!"<<endl;
-    exit(1);
-  }
   string x,y,z;
-  while (fin2>>x) {
-    if (x==att) {
-      fout<<x<<" ";
-      for (int i=0;i<total;i++) {
-        system("cls");
-        fin2>>y;
-        cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<att<<endl;
-        cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<y<<"\n\n";
-        cout<<"Please type the same value as before to skip this employee.\nEach item is limited to one word(without spacing).\n";
-        cout<<"New "<<att<<": ";
-        cin>>z;
-        fout<<z<<" ";
-      }
-      fout<<endl;
-    } else {
-      getline(fin2,y);
-      fout<<x<<y<<endl;
+  bool found=false;
+  int choice;
+  bool exist=true;
+  while (choice!=0) {
+    ifstream fin2;
+    fin2.open("attributes.txt");
+    if (fin2.fail()) {
+      cout<< "Error in file opening!\nThere maybe no custom attributes. If so, Please add new attributes." << endl;
+      exit(1);
     }
-  }
-  if (z.length()==0) {
-    cout<<"The attribute does not exist!\n\n\n";
-  }
-  fin2.close();
-  fout.close();
-  remove("attributes.txt");
-  rename("attributes_new.txt","attributes.txt");
-
-}
-
-int ViewAttribute(Employee * list,int total) {
-  ReadAttribute();
-  cout<<"Attribute name: ";
-  string att;
-  cin>>att;
-  ifstream fin2;
-  fin2.open("attributes.txt");
-  if (fin2.fail()) {
-    cout<< "Error is file opening!" << endl;
-    exit(1);
-  }
-  string x,y;
-  while (fin2>>x) {
-    if (x==att) {
-      cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<att<<endl;
-      for (int i=0;i<total;i++) {
-        fin2>>y;
-        cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<y<<endl;
+    while (fin2>>x) {
+      if (x==att) {
+        found=true;
+        if (!exist) {
+          system("cls");
+          cout<<"Employee doesn't exist!\n\n\n";
+        }
+        cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<att<<endl;
+        for (int i=0;i<total;i++) {
+          fin2>>y;
+          cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<y<<endl;
+        }
+        cout<<"\n\n\n";
       }
-      cout<<"\n\n\n";
-      fin2.close();
+      getline(fin2,y);
+    }
+    fin2.close();
+    if (!found) {
+      system("cls");
+      cout<<"The attribute does not exist!\n\n\n";
       return 0;
     }
-    getline(fin2,y);
+    cout<<"1. Edit\n0. Back\n";
+    cin>>choice;
+    switch (choice) {
+      case 1:{
+        ofstream fout;
+        fout.open("attributes_new.txt");
+        if (fout.fail()) {
+          cout<<"Error in file opening!"<<endl;
+          exit(1);
+        }
+        cout<<"Enter the employee's ID: ";
+        int change;
+        string ninfo;
+        cin>>change;
+        ifstream fin3;
+        fin3.open("attributes.txt");
+        if (fin3.fail()) {
+          cout<< "Error is file opening!" << endl;
+          exit(1);
+        }
+        while (fin3>>x) {
+          if (x==att) {
+            fout<<x<<" ";
+            exist=false;
+            for (int i=0;i<total;i++) {
+              if (list[i].ID==change) {
+                exist=true;
+                cout<<"Type one word only (don't use space).\n";
+                cout<<"New "<<att<<" for"<<list[i].name<<": ";
+                cin>>ninfo;
+                fin3>>y;
+                fout<<ninfo<<" ";
+                system("cls");
+                cout<<att<<" for"<<list[i].name<<" changed!\n\n\n";
+              } else {
+                fin3>>y;
+                fout<<y<<" ";
+              }
+            }
+            fout<<endl;
+          } else {
+            getline(fin3,y);
+            fout<<x<<y<<endl;
+          }
+        }
+        fin3.close();
+        fout.close();
+        remove("attributes.txt");
+        rename("attributes_new.txt","attributes.txt");
+        break;
+      }
+      case 0:
+      break;
+      default:
+      system("cls");
+      cout<<"Error! Please choose one of the options.\n"<<endl;
+    }
+
   }
-  cout<<"The attribute does not exist!\n\n\n";
-  fin2.close();
-  return 0;
+
+
 }
 
 void Attribute() {
@@ -587,7 +613,7 @@ void Attribute() {
   int choice;
   while (choice!=0){
     cout<<setfill(' ');
-    cout<<"You can: \n1. Add a new attribute \n2. Edit an existing custom attribute \n3. View an existing custom attribute"<<endl;
+    cout<<"You can: \n1. Add a new attribute \n2. View/Edit an existing custom attribute"<<endl;
     cout<<"\n0.Exit to main menu\n\nOption: ";
     cin>>choice;
     switch (choice) {
@@ -597,10 +623,6 @@ void Attribute() {
       }
       case 2:{
         EditAttribute(list,total);
-        break;
-      }
-      case 3:{
-        ViewAttribute(list,total);
         break;
       }
       case 0:
