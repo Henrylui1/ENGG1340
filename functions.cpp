@@ -31,14 +31,6 @@ int breakdown(string &str,string &name) {
   return age;
 }
 
-struct Employee {
-  int ID;
-  string all_info;
-  string name;
-  int age;
-  string role;
-  int salary;
-};
 int ListEmployee() {
   string stopper;
   ifstream fin;
