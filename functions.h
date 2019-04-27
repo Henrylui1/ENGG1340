@@ -10,7 +10,7 @@ struct Employee {
   int salary;
 };
 
-int breakdown(std::string,std::string);
+int breakdown(std::string&,std::string&);
 int ListEmployee();
 void AddEmployee();
 void SearchNamePrintString(Employee *,std::string,int);
