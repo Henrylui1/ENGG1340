@@ -10,7 +10,7 @@ This listing format is the same for all functions(except 7).
 List is sorted through entering order.
 ### 2.Create a new employee with employee's personal information
 Personal information include: ID, name, age, role, and salary. 
-The name is assumed to be at most 20 charaters (including space), and the ro le to be at most 30 characters (including space).
+The name is assumed to be at most 20 charaters (including space), and the role to be at most 30 characters (including space).
 ### 3.Search for an employee
 Search employee(s) through ID, name, age or role of the employee(s). 
 For name/role searching, only a key word is needed.If the employee's name/role contains the keyword, his/her information will be shown. (Searching IT for role will have all staff with role containing "IT" listed, e.g. both "IT manager" and "IT trainee" will be listed.)
