@@ -20,7 +20,7 @@ void EditEmployee();
 void SearchSalary();
 void AddAttribute(Employee *,int);
 void ReadAttribute();
-void EditAttribute(Employee *,int);
+int EditAttribute(Employee *,int);
 void Attribute();
 void Bubblesortstring(std::string[],int);
 void Bubblesortnumber(int[],int);
