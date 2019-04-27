@@ -56,7 +56,7 @@ Sort and list all empployees through name(alphabetical order), age or salary.
 The users can choose what function to run through a dedicated menu. Function 7 also has its own small menu.
 ## Some Limitaions
 1. The input must follow the format.<br /> e.g. you must not type anything other than whole numbers under "ID", "age", or "salary".<br />For "name" and "role", you can type spaces. For function 7 (custom attributes) , you **CANNOT**.
-2. Function 7 is basically a separate system and you cannot show every custom attributes as well as pre-defined attributes at the same time. There are no sort/search for custom attributes.
+2. Function 7 is basically a separate system and you cannot show every custom attributes as well as pre-defined attributes at the same time. There are no sort/search functions for custom attributes.
 3. Finish the whole function and **DO NOT** force quit the program. Otherwise some information may be lost.
 ## Remarks
 1. **employees.txt** is the file to store the basic information of employees. DO NOT change its filename and ONLY change the file content through the program. There are some example employees in the file. Change them if you wish.
