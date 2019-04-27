@@ -760,4 +760,4 @@ cout<<setfill(' ');
 	    		cout<<setw(4)<<left<<list[j].ID<<setw(20)<<left<<list[j].name<<setw(4)<<left<<list[j].age
                 <<setw(30)<<left<<list[j].role<<setw(7)<<left<<list[j].salary<<endl;
 	         }                                    //formatted output of the employee's information after sorting according to user's command
-		}}}}
+		}}}}}
