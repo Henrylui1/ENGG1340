@@ -46,5 +46,5 @@ The users can choose what function to run through a dedicated menu. Function 7 a
 2. Function 7 is basically a separate system and you cannot show every custom attributes as well as pre-defined attributes at the same time. There are no sort/search for custom attributes.
 3. Finish the whole function and **DO NOT** force quit the program. Otherwise some information may be lost.
 ## Remarks
-1. employees.txt is the file to store the basic information of employees. DO NOT change its filename and ONLY change the file content through the program. There are some example employees in the file. Change them if you wish.
-2. attributes.txt is the file to store custom attributes. DO NOT change its filename and ONLY change the file content through the program. The file is empty at the beginning.
+1. **employees.txt** is the file to store the basic information of employees. DO NOT change its filename and ONLY change the file content through the program. There are some example employees in the file. Change them if you wish.
+2. **attributes.txt** is the file to store custom attributes. DO NOT change its filename and ONLY change the file content through the program. The file is empty at the beginning.
