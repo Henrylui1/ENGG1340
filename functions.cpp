@@ -150,7 +150,7 @@ void SearchEmployee() {
     cout<<"You can search by:\n1. ID \n2. name \n3. age \n4. role \n\n0. Exit Searching\n"<<endl;
     cout<<"Option: "<<endl;
     cin>>option;
-    system("cls");
+    //system("cls");
     cout<<"Search for: ";
     switch (option) {
       case 1:
@@ -438,7 +438,7 @@ void AddAttribute(Employee * list,int total) {
   fout<<new_att<<" ";
   string enter;
   for (int i=0;i<total;i++) {
-    system("cls");
+    //system("cls");
     cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
     cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
        <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
@@ -470,7 +470,7 @@ void ReadAttribute() {
 }
 
 int EditAttribute(Employee * list,int total) {
-  system("cls");
+  //system("cls");
   ReadAttribute();
   cout<<"Attribute name: ";
   string att;
@@ -490,7 +490,7 @@ int EditAttribute(Employee * list,int total) {
       if (x==att) {
         found=true;
         if (!exist) {
-          system("cls");
+          //system("cls");
           cout<<"Employee doesn't exist!\n\n\n";
         }
         cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<att<<endl;
@@ -504,7 +504,7 @@ int EditAttribute(Employee * list,int total) {
     }
     fin2.close();
     if (!found) {
-      system("cls");
+      //system("cls");
       cout<<"The attribute does not exist!\n\n\n";
       return 0;
     }
@@ -540,7 +540,7 @@ int EditAttribute(Employee * list,int total) {
                 cin>>ninfo;
                 fin3>>y;
                 fout<<ninfo<<" ";
-                system("cls");
+                //system("cls");
                 cout<<att<<" for"<<list[i].name<<" changed!\n\n\n";
               } else {
                 fin3>>y;
@@ -562,7 +562,7 @@ int EditAttribute(Employee * list,int total) {
       case 0:
       break;
       default:
-      system("cls");
+      //system("cls");
       cout<<"Error! Please choose one of the options.\n"<<endl;
     }
 
@@ -617,7 +617,7 @@ void Attribute() {
         break;
       }
       case 0:
-      system("cls");
+      //system("cls");
       break;
       default:
       cout<<"Error! Please choose one of the options.\n"<<endl;
