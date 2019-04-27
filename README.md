@@ -61,5 +61,5 @@ The users can choose what function to run through a dedicated menu. Function 7 a
 ## Remarks
 1. **employees.txt** is the file to store the basic information of employees. DO NOT change its filename and ONLY change the file content through the program. There are some example employees in the file. Change them if you wish (through the program) .
 2. **attributes.txt** is the file to store custom attributes. DO NOT change its filename and ONLY change the file content through the program. The file is empty at the beginning.
-
+<sub><sup>combining the two tags</sup></sub>
 ~~We may make a upgraded verison to enable the system listed on limitations. Subscribe to make this possible :)~~
