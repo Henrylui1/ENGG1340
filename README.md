@@ -5,7 +5,7 @@ This is a staff management system that can collect and manage the employees' inf
 We assume that there are around 15 staffs in the business, but it wouldn't matter if there are more employees.
 ## Program Version
 ### For Windows
-mainsystem.cpp is the complete file of the whole program. Compile it and use it and you will be fine.
+mainsystem.cpp is the complete file of the whole program. Compile and use it and you will be fine.
 ### For Linux
 You can use the method of Makefile. Please change the space before g++ command into tab. (tab becomes two spaces in Github so we can't type it) <br />If it still doesn't work, please compile and use mainsystem.cpp like in Windows.
 ## Program Features
@@ -44,3 +44,6 @@ The users can choose what function to run through a dedicated menu. Function 7 a
 1. The input must follow the format, e.g. you must not type enything other than whole numbers under "age".<br />For "name" and "role", you can type spaces. For function 7 (custom attributes) , you **CANNOT**.
 2. Function 7 is basically a separate system and you cannot show every custom attributes as well as pre-defined attributes at the same time.
 3. Finish the whole function and **DO NOT** force quit the program. Otherwise some information may be lost.
+## Remarks
+1. employees.txt is the file to store the basic information of employees. DO NOT change its filename and ONLY change the file content through the program. There are some example employees in the file. Change them if you wish.
+2. attributes.txt is the file to store custom attributes. DO NOT change its filename and ONLY change the file content through the program. The file is empty at the beginning.
