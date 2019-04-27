@@ -36,5 +36,5 @@ Sort and list all empployees through name(alphabetical order), age or salary.
 ### 9. A Menu will be provided for users
 The users can choose what function to run through a dedicated menu. Function 7 also has its own small menu.
 ## Some Limitaions
-1. The input must follow the format, e.g. you must not type enything other than whole numbers under "age".<br />For "name" and "role", you can type spaces but for function 7 (custom attributes) , you CANNOT.
+1. The input must follow the format, e.g. you must not type enything other than whole numbers under "age".<br />For "name" and "role", you can type spaces. For function 7 (custom attributes) , you CANNOT.
 2. Function 7 is basically a separate system and you cannot show every custom attributes as well as original attributes at the same time.
