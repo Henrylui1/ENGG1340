@@ -3,6 +3,7 @@ Contributors:
 ENGG1340 Group 42
 - Chou Cheuk Yin UID: 3035569691
 - Lui Pui Him UID: 3035574115
+*The trend graphs may show uneven workload distribution between us. This is because one of us compiled and uploaded all the files for easier debugging. Our workload is shared.*
 ## Problem Statement
 This is a staff management system that can collect and manage the employees' information of a small business.
 ## Problem Setting
