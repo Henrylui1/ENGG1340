@@ -5,6 +5,7 @@ This is a staff management system that can collect and manage the employees' inf
 We assume that there are around 15 staffs in the business, but it wouldn't matter if there are more employees.
 ## Program Version
 ### For Windows
+The only files you need is mainsystem.cpp and the two text files. Ignore everything else.<br />
 mainsystem.cpp is the complete file of the whole program. Compile and use it and you will be fine.
 ### For Linux
 You can use the method of Makefile. Please change the space before g++ command into tab. (tab becomes two spaces in Github so we can't type it) <br />If it still doesn't work, please compile and use mainsystem.cpp like in Windows.
