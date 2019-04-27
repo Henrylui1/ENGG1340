@@ -1,8 +1,8 @@
 # Staff Management System
 Contributors:
 ENGG1340 Group 42
-- Chou Cheuk Yin UID:3035569691
-- Lui Pui Him UID:3035574115
+- Chou Cheuk Yin UID: 3035569691
+- Lui Pui Him UID: 3035574115
 ## Problem Statement
 This is a staff management system that can collect and manage the employees' information of a small business.
 ## Problem Setting
