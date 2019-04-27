@@ -729,7 +729,7 @@ cout<<setfill(' ');
   }
   if (choice==2||choice==3)
   {
-  	int temp[total];
+  	int *temp=new int[total];
   	for (int i=0;i<total;i++)
   	{
   		if (choice==2){
@@ -773,6 +773,7 @@ cout<<setfill(' ');
 		}
 
 }
+	  delete [] temp;
 }
 
   }
