@@ -35,7 +35,7 @@ int main()
     cout<<setw(57)<<' '<<endl;
     cout<<"Please enter your choice :";
     cin>>choice;
-    system("cls");
+    //system("cls");
     switch(choice)
     {
       case 1:
@@ -46,7 +46,7 @@ int main()
       break;
       case 3:
       SearchEmployee();
-      system("cls");
+      //system("cls");
       break;
       case 4:
       FireEmployee();
