@@ -71,11 +71,11 @@ int ListEmployee() {						//List all employees by entering order
   return 0;
 }
 
-void AddEmployee()
+void AddEmployee()                //Add a new employee to the system
 {
   int id,age,salary;
   string name,role;
-  cout<<"Enter ID :\n";
+  cout<<"Enter ID :\n";           //Get the information of the new employee
   cin>>id;
   cout<<"Enter Name :\n";
   cin>>ws;
@@ -87,7 +87,7 @@ void AddEmployee()
   getline(cin,role);
   cout<<"Enter Salary :\n";
   cin>>salary;
-  cout<<"A new employee has been added !"<<endl;
+  cout<<"A new employee has been added !"<<endl;   //Show that the new employee is added to the system
   ofstream fout;
   fout.open("employees.txt",ios::app);
   if (fout.fail()) {
@@ -98,15 +98,15 @@ void AddEmployee()
   fout.close();
 }
 
-void SearchNamePrintString(Employee *list,string key,int total) {
-  cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+void SearchNamePrintString(Employee *list,string key,int total) {      //To search the name of a employee
+  cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"  //formatted output of attribute titles
    <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
    for (int i=0;i<total;i++) {
      if (key.length()<=list[i].name.length()){
        for (int j=0;j<list[i].name.length()-key.length()+1;j++){
          if (list[i].name.substr(j,key.length())==key) {
            cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
-            <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
+            <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;           //formatted output of the required staff info
           }
         }
       }
@@ -114,7 +114,7 @@ void SearchNamePrintString(Employee *list,string key,int total) {
   cout<<"\n\n\n";
 }
 
-void SearchEmployee() {
+void SearchEmployee() {         //To search for employees in the system
   ifstream fin;
   fin.open("employees.txt");
   if (fin.fail()) {
@@ -146,23 +146,23 @@ void SearchEmployee() {
   fin.close();
   cout<<setfill(' ');
   int option;
-  while (option!=0) {
+  while (option!=0) {                             //Get the type of attribute to be searched
     cout<<"You can search by:\n1. ID \n2. name \n3. age \n4. role \n\n0. Exit Searching\n"<<endl;
     cout<<"Option: "<<endl;
     cin>>option;
     //system("cls");
-    cout<<"Search for: ";
+    cout<<"Search for: ";                        //Get the attribute of the employees to be searched
     switch (option) {
       case 1:
       {int x;
       cin>>x;
-      cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+      cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"   //formatted output of employees' attributes
        <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
       for (int i=0;i<total;i++) {
         if (list[i].ID==x) {
           cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
-            <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
-        }
+            <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;       
+        }                                                          //formatted output of the information of the employee searched by ID
       }
       cout<<"\n\n\n";
       break;}
@@ -176,12 +176,12 @@ void SearchEmployee() {
       {int z;
       cin>>z;
       cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
-       <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+       <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;         //formatted output of employees' attributes
       for (int i=0;i<total;i++) {
         if (list[i].age==z) {
           cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
             <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
-        }
+        }                                                           //formatted output of the information of the employee searched by age
       }
       cout<<"\n\n\n";
       break;}
@@ -190,14 +190,14 @@ void SearchEmployee() {
       cin>>ws;
       getline(cin,a);
       cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
-       <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+       <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;       //formatted output of employees' attributes
        for (int i=0;i<total;i++) {
          if (a.length()<=list[i].role.length()){
            for (int j=0;j<list[i].role.length()-a.length()+1;j++){
              if (list[i].role.substr(j,a.length())==a) {
                cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
                 <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
-              }
+              }                                                   //formatted output of the information of the employee searched by role
             }
           }
        }
@@ -213,7 +213,7 @@ void SearchEmployee() {
   delete [] list;
 }
 
-void FireEmployee() {
+void FireEmployee() {             //To delete the information of an employee from the system
   ifstream fin;
   fin.open("employees.txt");
   if (fin.fail()) {
@@ -243,7 +243,7 @@ void FireEmployee() {
   count++;
   }
   fin.close();
-  cout<<"Please enter the employee's id: ";
+  cout<<"Please enter the employee's id: ";                    //Get the ID of the employee to be fired
   int del;
   string confirm;
   cin>>del;
@@ -252,12 +252,12 @@ void FireEmployee() {
     if (list[i].ID==del){
       break;
     } else if (i==total-1) {
-      cout<<"The employee does not exist!\n\n\n";
+      cout<<"The employee does not exist!\n\n\n";             //Output error message if the ID entered is not valid
       exist=false;
     }
   }
   while (exist) {
-    cout<<"Are you sure you want to delete this employee's information? Y/N ";
+    cout<<"Are you sure you want to delete this employee's information? Y/N ";   //ask for confirmation
     cin>>confirm;
     if (confirm=="Y") {
       ofstream fout;
@@ -273,22 +273,22 @@ void FireEmployee() {
         fout<<list[i].ID<<list[i].name<<" "<<list[i].age<<" "<<list[i].role<<" "<<list[i].salary<<endl;
       }
       fout.close();
-      cout<<"Employee Removed\n\n\n";
+      cout<<"Employee Removed\n\n\n";              //Output message if the employee is deleted sucessfully
       break;
     } else if (confirm=="N") {
-      cout<<"Deletion Terminated\n\n\n";
+      cout<<"Deletion Terminated\n\n\n";            //Output message if the user chose not to delete the employee
       break;
     } else {
-      cout<<"Error! Please type Y/N"<<endl;
+      cout<<"Error! Please type Y/N"<<endl;          //Output message if the user entered invalid choice
     }
   }
   delete [] list;
 }
 
-void EditEmployee()
+void EditEmployee()                                  //To edit the information of an employee
 {
   int edit,newchoice;
-  cout<<"Please enter the ID of the employee you want to edit : ";
+  cout<<"Please enter the ID of the employee you want to edit : ";  //Get the ID of the employee to be edited
   cin>>edit;
   int nage,nsalary;
   string nname,nrole;
@@ -336,8 +336,8 @@ void EditEmployee()
 			  cout<<setfill(' ');
  cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
  cout<<setw(4)<<left<<list[j].ID<<setw(20)<<left<<list[j].name<<setw(4)<<left<<list[j].age
-    <<setw(30)<<left<<list[j].role<<setw(7)<<left<<list[j].salary<<endl;
-		  }}
+    <<setw(30)<<left<<list[j].role<<setw(7)<<left<<list[j].salary<<endl;      //Show the original information of the employee
+		  }}                                 
 		  cout<<"Please enter new name :";
   cin>>ws;
   getline(cin,nname);
@@ -346,7 +346,7 @@ void EditEmployee()
   cout<<"Please enter new role :";
   cin>>ws;
   getline(cin,nrole);
-  cout<<"Please enter new salary :";
+  cout<<"Please enter new salary :";         //Get the new information of the employee
   cin>>nsalary;
 
 	  for (int k=0;k<total;k++) {
@@ -360,18 +360,18 @@ void EditEmployee()
         }
 }
 fout.close();
-      cout<<"Employee's Record Edited !\n\n\n";
+      cout<<"Employee's Record Edited !\n\n\n";   //Output message if the employee is edited successfully
       delete [] list;
     }
 
-      void SearchSalary()
+      void SearchSalary()                 //To search for employees that according to the salary level entered 
       {
       	int choice,target;
-      	cout<<"Please enter a salary level :";
+      	cout<<"Please enter a salary level :";         //Get an integer as the salary level
       	cin>>target;
       	cout<<"You want to search employees with salary higher than or lower than the level ?\n";
-      	cout<<"Please enter 1.Higher than or 2.Lower than : ";
-      	cin>>choice;
+      	cout<<"Please enter 1.Higher than or 2.Lower than : ";   
+      	cin>>choice;                       //Ask if the user want to show the employees with employer higher than or lower than the salary level
       	ifstream fin;
         fin.open("employees.txt");
         if (fin.fail()) {
@@ -402,7 +402,7 @@ fout.close();
         }
         cout<<setfill(' ');
        cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
-        for (int i=0;i<total;i++)
+        for (int i=0;i<total;i++)                    //formatted output of the attributes
         {
         	if (choice==1)
         	{
@@ -411,7 +411,7 @@ fout.close();
         			cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
           <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
       		  }
-      	  }
+      	  }        
       	if (choice==2)
       	{
       		if (list[i].salary<=target)
@@ -420,13 +420,13 @@ fout.close();
           <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
       		}
       	  }
-        }
-      	cout<<"Search Ended !\n\n\n"<<endl;
+        }                              //output the information of the employees that satisfy the requirement
+      	cout<<"Search Ended !\n\n\n"<<endl;      //output message when the searching is ended
         delete [] list;
       }
 
-void AddAttribute(Employee * list,int total) {
-  cout<<"New attribute name (One word only): ";
+void AddAttribute(Employee * list,int total) {    //To add a new attribute of the employees
+  cout<<"New attribute name (One word only): ";   //Get a new attribute in one word
   string new_att;
   cin>>new_att;
   ofstream fout;
@@ -444,15 +444,15 @@ void AddAttribute(Employee * list,int total) {
        <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
     cout<<"\nPlease initialize this employee's "<<new_att<<".\nPlease type / to skip this employee.\nEach item is limited to one word(without spacing).\n\n"<<new_att<<": ";
     cin>>enter;
-    fout<<enter<<" ";
+    fout<<enter<<" ";   //Get the initial attribute of each employee
   }
   fout<<endl;
   fout.close();
-  cout<<"New attribute added!\n\n\n";
+  cout<<"New attribute added!\n\n\n";  //Output message if the new attribute is added successfully
 
 }
 
-void ReadAttribute() {
+void ReadAttribute() {      //To read the existing attribute of the employees
   ifstream fin2;
   fin2.open("attributes.txt");
   if (fin2.fail()) {
@@ -460,7 +460,7 @@ void ReadAttribute() {
     exit(1);
   }
   string x,y;
-  cout<<"Existing attribute: ";
+  cout<<"Existing attribute: ";   //Output the existing attribute of each employee
   while (fin2>>x) {
     cout<<x<<" ";
     getline(fin2,y);
@@ -469,10 +469,10 @@ void ReadAttribute() {
   fin2.close();
 }
 
-int EditAttribute(Employee * list,int total) {
+int EditAttribute(Employee * list,int total) {   //To edit the attribute added to the employees
   //system("cls");
   ReadAttribute();
-  cout<<"Attribute name: ";
+  cout<<"Attribute name: ";        //Get the name of the attribute to be edited 
   string att;
   cin>>att;
   string x,y,z;
@@ -508,7 +508,7 @@ int EditAttribute(Employee * list,int total) {
       cout<<"The attribute does not exist!\n\n\n";
       return 0;
     }
-    cout<<"1. Edit\n0. Back\n";
+    cout<<"1. Edit\n0. Back\n";       //Ask if the user want to edit the attribute or exit
     cin>>choice;
     switch (choice) {
       case 1:{
@@ -535,7 +535,7 @@ int EditAttribute(Employee * list,int total) {
             for (int i=0;i<total;i++) {
               if (list[i].ID==change) {
                 exist=true;
-                cout<<"Type one word only (don't use space).\n";
+                cout<<"Type one word only (don't use space).\n";   //Get the new attrbute of each employee
                 cout<<"New "<<att<<" for"<<list[i].name<<": ";
                 cin>>ninfo;
                 fin3>>y;
@@ -571,7 +571,7 @@ int EditAttribute(Employee * list,int total) {
 
 }
 
-void Attribute() {
+void Attribute() {            //To add, read, or edit the attribute of the employees
   ifstream fin;
   fin.open("employees.txt");
   if (fin.fail()) {
@@ -605,7 +605,7 @@ void Attribute() {
   while (choice!=0){
     cout<<setfill(' ');
     cout<<"You can: \n1. Add a new attribute \n2. View/Edit an existing custom attribute"<<endl;
-    cout<<"\n0.Exit to main menu\n\nOption: ";
+    cout<<"\n0.Exit to main menu\n\nOption: ";         //Get the command from the user 
     cin>>choice;
     switch (choice) {
       case 1:{
@@ -620,7 +620,7 @@ void Attribute() {
       //system("cls");
       break;
       default:
-      cout<<"Error! Please choose one of the options.\n"<<endl;
+      cout<<"Error! Please choose one of the options.\n"<<endl;    //output message if the command entered by the user is invalid
     }
 
   }
@@ -629,7 +629,7 @@ void Attribute() {
 
 }
 
-void Bubblesortstring(string st[],int n)
+void Bubblesortstring(string st[],int n)    //To sort an array of string by bubble sort
 {
 	for (int i=0;i<n-1;i++)
 	{
@@ -644,7 +644,7 @@ void Bubblesortstring(string st[],int n)
 		}
 	}
 }
-void Bubblesortnumber(int in[],int n)
+void Bubblesortnumber(int in[],int n)    //to sort an array of integer by bubble sort
 {
 	for (int i=0;i<n-1;i++)
 	{
@@ -659,13 +659,13 @@ void Bubblesortnumber(int in[],int n)
 		}
 	}
 }
-void Sort()
+void Sort()        //To sort the information of the employees by name,age,or salary
 {
 
   int choice;
   //cout<<"Please enter the attributes to sort :";
   cout<<"1.Name (in alphbetical order) \n2.Age \n3.Salary \n";
-  cout<<"Please enter the attribute to sort :";
+  cout<<"Please enter the attribute to sort :";       //Get the attribute to be sorted
   cin>>choice;
   ifstream fin;
   fin.open("employees.txt");
@@ -697,7 +697,7 @@ void Sort()
   }
   cout<<"Sorting Result :\n";
 cout<<setfill(' ');
- cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
+ cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;   //formatted output of attributes
   if (choice==1)
   {
   	string *temp=new string[total];
@@ -720,7 +720,7 @@ cout<<setfill(' ');
   }
   if (choice==2||choice==3)
   {
-  	int *tem=new int[total];
+  	int *temp=new int[total];
   	for (int i=0;i<total;i++)
   	{
   		if (choice==2){
@@ -759,11 +759,5 @@ cout<<setfill(' ');
 				}
 	    		cout<<setw(4)<<left<<list[j].ID<<setw(20)<<left<<list[j].name<<setw(4)<<left<<list[j].age
                 <<setw(30)<<left<<list[j].role<<setw(7)<<left<<list[j].salary<<endl;
-			}
-			}
-		}
-
-}
-}
-
-  }
+	         }                                    //formatted output of the employee's information after sorting according to user's command
+		}}}}
