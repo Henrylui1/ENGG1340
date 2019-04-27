@@ -700,7 +700,7 @@ cout<<setfill(' ');
  cout<<setw(4)<<left<<"ID"<<setw(20)<<left<<"Name"<<setw(4)<<left<<"Age"<<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
   if (choice==1)
   {
-  	string temp[total];
+  	string *temp=new string[total];
   	for (int i=0;i<total;i++)
   	{
   		temp[i]=list[i].name;
@@ -720,7 +720,7 @@ cout<<setfill(' ');
   }
   if (choice==2||choice==3)
   {
-  	int temp[total];
+  	int *tem=new int[total];
   	for (int i=0;i<total;i++)
   	{
   		if (choice==2){
