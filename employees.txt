@@ -9,5 +9,5 @@
 9 Wong Tai Keung 30 Everything 25000
 10 Jones Indiana 33 Second Conlsultant 75000
 11 Ching Fen Shi 37 Cleaning 13000 
-12 Chu Siu Siu 23 Accountant Trainee 15000
+12 Chu Siu Sing 23 Accountant Trainee 15000
 13 Sei Duk Lun 25 IT 16000
