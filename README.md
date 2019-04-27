@@ -13,13 +13,13 @@ Personal information include: ID, name, age, role, and salary.
 The name is assumed to be at most 20 charaters (including space), and the role to be at most 30 characters (including space).
 ### 3.Search for an employee
 Search employee(s) through ID, name, age or role of the employee(s). 
-For name/role searching, only a key word is needed.If the employee's name/role contains the keyword, his/her information will be shown. (Searching IT for role will have all staff with role containing "IT" listed, e.g. both "IT manager" and "IT trainee" will be listed.)
+For name/role searching, only a keyword is needed. If the employee's name/role contains the keyword, his/her information will be shown. (Searching IT for role will have all staff with role containing "IT" listed, e.g. both "IT manager" and "IT trainee" will be listed.)
 ### 4.Fire an employee
 By deleting the employee's information. A confirmation is available to ensure you do not make the wrong decision.
 ### 5.Edit the details of an existing employee
 Search the employee's ID and you can edit his/her name, age, role, and/or salary.
 ### 6.Search for all employees with a salary higher than or lower than a user input
-Search employee(s) through salary. 
+Search employee(s) through salary.                                                                      
 Type the amount first and then specify if you want to search the amount higher or lower than that.
 ### 7.Adding/Editing user-defined attributes
 Two sub-functions are available: 1)adding and 2)editing/viewing.
