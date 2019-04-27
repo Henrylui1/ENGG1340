@@ -9,8 +9,8 @@
 
 using namespace std;
 
-int breakdown(string &str,string &name) {
-  locale loc;
+int breakdown(string &str,string &name) {                   	// a function to breakdown a line string of info of 
+  locale loc;                                                	// one employee into separated attributes
   bool detectdigit=true;
   int age;
   for (int i=0;i<str.length();i++) {
@@ -31,7 +31,7 @@ int breakdown(string &str,string &name) {
   return age;
 }
 
-int ListEmployee() {
+int ListEmployee() {						//List all employees by entering order
   string stopper;
   ifstream fin;
   fin.open("employees.txt");
@@ -55,16 +55,16 @@ int ListEmployee() {
  fintemp.close();
  Employee *list=new Employee [total];
  cout<<setfill(' ');
- cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"
+ cout<<setw(5)<<left<<"ID"<<setw(19)<<left<<"Name"<<setw(4)<<left<<"Age"			//formatted output of attribute titles
   <<setw(30)<<left<<"Role"<<setw(7)<<left<<"Salary"<<endl;
  while(fin>>list[count-1].ID) {
   getline(fin,list[count-1].all_info);
   int i=count-1;
   list[i].age=breakdown(list[i].all_info,list[i].name);
   list[i].salary=breakdown(list[i].all_info,list[i].role);
-  cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age
+  cout<<setw(4)<<left<<list[i].ID<<setw(20)<<left<<list[i].name<<setw(4)<<left<<list[i].age	//formatted output of staff info
     <<setw(30)<<left<<list[i].role<<setw(7)<<left<<list[i].salary<<endl;
-  count++;
+  count++;											
   }
   fin.close();
   delete [] list;
