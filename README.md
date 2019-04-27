@@ -35,5 +35,8 @@ You may then choose a staff to edit. The elements representing the staff MUST be
 Sort and list all empployees through name(alphabetical order), age or salary.
 ### 9.A Menu will be provided for users
 The users can choose what function to run
-
+```diff
++ this will be highlighted in green
+- this will be highlighted in red
+```
 
