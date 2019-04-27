@@ -2,7 +2,7 @@
 ## Problem Statement
 This is a staff management system that can collect and manage the employees' information of a small business.
 ## Problem Setting
-We assume that there are around 15 staffs in the business, but it wouldn't matter when there are more employees.
+We assume that there are around 15 staffs in the business, but it wouldn't matter if there are more employees.
 ## Program Features
 ### 1. List all Employees
 Output the list of employees with a specific, clean format. Horizontally the order is ID, name, age, role and salary.
