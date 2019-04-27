@@ -19,8 +19,8 @@ By deleting the employee's information. A confirmation is available to ensure yo
 ### 5.Edit the details of an existing employee
 Search the employee's ID and you can edit his/her name, age, role, and/or salary.
 ### 6.Search for all employees with a salary higher than or lower than a user input
-Search employee(s) through salary.                                                                      
-Type the amount first and then specify if you want to search the amount higher or lower than that.
+Search employee(s) through salary. 
+Type the amount first and then specify if you want to search the amount higher or lower than that. 
 ### 7.Adding/Editing user-defined attributes
 Two sub-functions are available: 1)adding and 2)editing/viewing.
 #### 7.1 Adding a new custom attribute
